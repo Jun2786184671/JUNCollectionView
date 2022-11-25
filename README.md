@@ -81,6 +81,7 @@ collectionView.dataSouce = anyDataSource;
 @property(nonatomic, assign) CGFloat jun_minimumLineSpacing;
 @property(nonatomic, assign) CGFloat jun_minimumInteritemSpacing;
 @property(nonatomic, assign) CGFloat jun_itemSize;
+@property(nonatomic, assign) UIEdgeInsets jun_inset;
 ```
 You can go to ```<JUNCollectionView/UICollectionView+JUNex.h>``` to see in detail.
 
