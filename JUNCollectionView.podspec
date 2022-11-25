@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JUNCollectionView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'An extension to UICollectionView that makes creating collectionviews efficiently and gracefully.'
 
 # This description is used to generate tags and improve search results.

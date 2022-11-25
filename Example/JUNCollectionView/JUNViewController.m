@@ -115,6 +115,7 @@
     self.collectionView.alwaysBounceVertical = true;
 //    self.collectionView.jun_minimumLineSpacing = 30;
     self.collectionView.jun_minimumInteritemSpacing = 30;
+    self.collectionView.jun_inset = UIEdgeInsetsMake(80, 30, 80, 30);
 }
 
 - (void)didReceiveMemoryWarning

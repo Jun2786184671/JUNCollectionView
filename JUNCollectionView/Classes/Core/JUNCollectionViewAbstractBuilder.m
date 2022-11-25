@@ -73,4 +73,8 @@ NSString *JUNCollectionViewCellReuseId = @"cell";
     return self.minimumInteritemSpacing;
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return self.inset;
+}
+
 @end

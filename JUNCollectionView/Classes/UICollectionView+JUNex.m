@@ -9,6 +9,7 @@
 #import "JUNCollectionViewProxy.h"
 
 @implementation UICollectionView (JUNex)
+@dynamic jun_itemSize, jun_minimumLineSpacing, jun_minimumInteritemSpacing, jun_inset;
 
 + (instancetype)jun_collectionViewWithItems:(NSArray<UIView *> *)items direction:(UICollectionViewScrollDirection)direction {
     return (UICollectionView *)[[JUNCollectionViewProxy alloc] initWithItemsBuiler:^NSArray<UIView *> * _Nonnull{

@@ -19,6 +19,7 @@ extern NSString *JUNCollectionViewCellReuseId;
 @property(nonatomic, assign) CGFloat minimumLineSpacing;
 @property(nonatomic, assign) CGFloat minimumInteritemSpacing;
 @property(nonatomic, assign) CGFloat itemSize;
+@property(nonatomic, assign) UIEdgeInsets inset;
 
 @end
 

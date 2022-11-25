@@ -21,6 +21,7 @@
 @property(nonatomic, assign) CGFloat jun_minimumLineSpacing;
 @property(nonatomic, assign) CGFloat jun_minimumInteritemSpacing;
 @property(nonatomic, assign) CGFloat jun_itemSize;
+@property(nonatomic, assign) UIEdgeInsets jun_inset;
 
 @end
 
@@ -94,6 +95,11 @@
 - (void)setJun_minimumInteritemSpacing:(CGFloat)jun_minimumInteritemSpacing {
     _jun_minimumInteritemSpacing = jun_minimumInteritemSpacing;
     self.builder.minimumInteritemSpacing = jun_minimumInteritemSpacing;
+}
+
+- (void)setJun_inset:(UIEdgeInsets)jun_inset {
+    _jun_inset = jun_inset;
+    self.builder.inset = jun_inset;
 }
 
 - (void)didMoveToSuperview {
@@ -176,7 +182,9 @@
     return [self.builder collectionView:collectionView layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:section];
 }
 
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section;
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return [self.builder collectionView:collectionView layout:collectionViewLayout insetForSectionAtIndex:section];
+}
 //
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
 //
