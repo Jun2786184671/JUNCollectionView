@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'JUNCollectionView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of JUNCollectionView.'
+  s.summary          = 'An extension to UICollectionView that makes creating collectionviews efficiently and gracefully.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/Jun Ma/JUNCollectionView'
+  s.homepage         = 'https://github.com/Jun2786184671/JUNCollectionView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Jun Ma' => 'maxinchun5@gmail.com' }
-  s.source           = { :git => 'https://github.com/Jun Ma/JUNCollectionView.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:Jun2786184671/JUNCollectionView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   #   'JUNCollectionView' => ['JUNCollectionView/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.public_header_files = 'JUNCollectionView/Classes/*.h'
+  s.frameworks = 'UIKit', 'Foundation'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

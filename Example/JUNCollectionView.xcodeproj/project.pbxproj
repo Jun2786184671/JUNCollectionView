@@ -37,11 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		042E342C95B9CB4A46F9DB89 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		042E342C95B9CB4A46F9DB89 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		212B8AFF68E0159A323B9D53 /* Pods-JUNCollectionView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUNCollectionView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JUNCollectionView_Tests/Pods-JUNCollectionView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D9EADBB4039FD43D8C20B98 /* Pods-JUNCollectionView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUNCollectionView_Example.release.xcconfig"; path = "Target Support Files/Pods-JUNCollectionView_Example/Pods-JUNCollectionView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2FC197893CF39FBD4ACAAFEA /* Pods-JUNCollectionView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUNCollectionView_Example.debug.xcconfig"; path = "Target Support Files/Pods-JUNCollectionView_Example/Pods-JUNCollectionView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		397C7D9E9B8FEF6404688D1F /* JUNCollectionView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = JUNCollectionView.podspec; path = ../JUNCollectionView.podspec; sourceTree = "<group>"; };
+		397C7D9E9B8FEF6404688D1F /* JUNCollectionView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JUNCollectionView.podspec; path = ../JUNCollectionView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		568F571FDBA3A8F933219CA3 /* Pods_JUNCollectionView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JUNCollectionView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* JUNCollectionView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JUNCollectionView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,7 +65,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7CE57ED52F87F98C728191F /* Pods-JUNCollectionView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JUNCollectionView_Tests.release.xcconfig"; path = "Target Support Files/Pods-JUNCollectionView_Tests/Pods-JUNCollectionView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D01C3D58B6FE064B717D179A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D01C3D58B6FE064B717D179A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D2A761822932B2D05E7C0CF6 /* Pods_JUNCollectionView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JUNCollectionView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				212B8AFF68E0159A323B9D53 /* Pods-JUNCollectionView_Tests.debug.xcconfig */,
 				A7CE57ED52F87F98C728191F /* Pods-JUNCollectionView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -259,6 +258,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
