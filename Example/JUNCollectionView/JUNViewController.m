@@ -89,7 +89,7 @@
         [elements addObject:@(i)];
     }
     return [UICollectionView jun_collectionViewWithForEach:elements itemBuilder:^UIView * _Nonnull(NSUInteger index, id  _Nonnull element) {
-        unsigned int type = [element integerValue] % 3;
+        unsigned int type = [element integerValue] % 4;
         switch (type) {
             case 0: {
                 UILabel *aLabel = [[UILabel alloc] init];
@@ -103,9 +103,14 @@
                 [aButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
                 return aButton;
             }
-            default: {
+            case 2: {
                 UISwitch *aSwitch = [[UISwitch alloc] init];
                 return aSwitch;
+            }
+            default: {
+                UIView *aView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+                aView.backgroundColor = [UIColor orangeColor];
+                return aView;
             }
         }
     } direction:UICollectionViewScrollDirectionHorizontal];
@@ -113,7 +118,7 @@
 
 - (void)testSetProperties {
     self.collectionView.alwaysBounceVertical = true;
-//    self.collectionView.jun_minimumLineSpacing = 30;
+    self.collectionView.jun_minimumLineSpacing = 30;
     self.collectionView.jun_minimumInteritemSpacing = 30;
     self.collectionView.jun_inset = UIEdgeInsetsMake(80, 30, 80, 30);
 }
