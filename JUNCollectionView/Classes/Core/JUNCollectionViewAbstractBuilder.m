@@ -27,9 +27,23 @@ NSString *JUNCollectionViewCellReuseId = @"cell";
         [view removeFromSuperview];
     }
     UIView *item = [self _getItemForIndexPath:indexPath];
-    item.translatesAutoresizingMaskIntoConstraints = false;
+    item = [self _wrapItem:item];
     [cell.contentView addSubview:item];
     [self _setUpCellConstraints:cell item:item];
+}
+
+- (UIView *)_wrapItem:(UIView *)item {
+    item.translatesAutoresizingMaskIntoConstraints = false;
+    UIView *itemWrapper = [[UIView alloc] init];
+    itemWrapper.translatesAutoresizingMaskIntoConstraints = false;
+    [itemWrapper addSubview:item];
+    [itemWrapper addConstraints:@[
+        [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:itemWrapper attribute:NSLayoutAttributeTop multiplier:1.0f constant:0.0f],
+        [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:itemWrapper attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f],
+        [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:itemWrapper attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f],
+        [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:itemWrapper attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:0.0f],
+    ]];
+    return itemWrapper;
 }
 
 - (void)_setUpCellConstraints:(UICollectionViewCell *)cell item:(UIView *)item {
