@@ -108,7 +108,7 @@
                 return aSwitch;
             }
             default: {
-                UIView *aView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+                UIView *aView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
                 aView.backgroundColor = [UIColor orangeColor];
                 return aView;
             }
@@ -118,7 +118,7 @@
 
 - (void)testSetProperties {
     self.collectionView.alwaysBounceVertical = true;
-    self.collectionView.jun_minimumLineSpacing = 30;
+    self.collectionView.jun_minimumLineSpacing = 100;
     self.collectionView.jun_minimumInteritemSpacing = 30;
     self.collectionView.jun_inset = UIEdgeInsetsMake(80, 30, 80, 30);
 }

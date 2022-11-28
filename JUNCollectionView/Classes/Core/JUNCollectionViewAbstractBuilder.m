@@ -80,15 +80,27 @@ NSString *JUNCollectionViewCellReuseId = @"cell";
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return self.minimumLineSpacing;
+    NSParameterAssert([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]);
+    return [self _getMinimumLineSpacingWithLayout:(UICollectionViewFlowLayout *)collectionViewLayout];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return self.minimumInteritemSpacing;
+    NSParameterAssert([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]);
+    return [self _getMinimumInteritemSpacingWithLayout:(UICollectionViewFlowLayout *)collectionViewLayout];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return self.inset;
+}
+
+#pragma mark - private
+
+- (CGFloat)_getMinimumLineSpacingWithLayout:(UICollectionViewFlowLayout *)layout {
+    return layout.scrollDirection == UICollectionViewScrollDirectionVertical ? self.minimumLineSpacing : self.minimumInteritemSpacing;
+}
+
+- (CGFloat)_getMinimumInteritemSpacingWithLayout:(UICollectionViewFlowLayout *)layout {
+    return layout.scrollDirection == UICollectionViewScrollDirectionVertical ? self.minimumInteritemSpacing : self.minimumLineSpacing;
 }
 
 @end

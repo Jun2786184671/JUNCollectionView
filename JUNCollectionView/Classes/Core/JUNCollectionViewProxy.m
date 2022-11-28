@@ -12,9 +12,9 @@
 
 @interface JUNCollectionViewProxy () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property(nonatomic, strong, readonly) UICollectionView *target;
-@property(nonatomic, strong, readonly) JUNCollectionViewAbstractBuilder *builder;
-@property(nonatomic, assign, readonly) UICollectionViewScrollDirection direction;
+@property(nonatomic, strong) UICollectionView *target;
+@property(nonatomic, strong) JUNCollectionViewAbstractBuilder *builder;
+@property(nonatomic, assign) UICollectionViewScrollDirection direction;
 @property(nonatomic, weak) id<UICollectionViewDelegate> delegate;
 @property(nonatomic, weak) id<UICollectionViewDataSource> dataSource;
 
@@ -26,27 +26,26 @@
 @end
 
 @implementation JUNCollectionViewProxy
-@synthesize target = _target;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _target = nil;
+        self.target = nil;
     }
     return self;
 }
 
 - (instancetype)initWithItemsBuiler:(NSArray<UIView *> * _Nonnull (^)(void))itemsBuilder direction:(UICollectionViewScrollDirection)direction {
     if (self = [super init]) {
-        _builder = [[JUNCollectionViewStaticBuilder alloc] initWithItemsBuiler:itemsBuilder];
-        _direction = direction;
+        self.direction = direction;
+        self.builder = [[JUNCollectionViewStaticBuilder alloc] initWithItemsBuiler:itemsBuilder];
     }
     return self;
 }
 
 - (instancetype)initWithItemCountBuilder:(NSUInteger (^)(void))itemCountBuilder itemBuilder:(UIView * _Nonnull (^)(NSUInteger))itemBuilder direction:(UICollectionViewScrollDirection)direction {
     if (self = [super init]) {
-        _builder = [[JUNCollectionViewDynamicBuilder alloc] initWithItemCountBuilder:itemCountBuilder itemBuilder:itemBuilder];
-        _direction = direction;
+        self.direction = direction;
+        self.builder = [[JUNCollectionViewDynamicBuilder alloc] initWithItemCountBuilder:itemCountBuilder itemBuilder:itemBuilder];
     }
     return self;
 }
@@ -67,9 +66,9 @@
 }
 
 - (void)_setUpTarget {
-    _target.translatesAutoresizingMaskIntoConstraints = false;
-    _target.backgroundColor = [UIColor clearColor];
-    [_target registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:JUNCollectionViewCellReuseId];
+    self.target.translatesAutoresizingMaskIntoConstraints = false;
+    self.target.backgroundColor = [UIColor clearColor];
+    [self.target registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:JUNCollectionViewCellReuseId];
 }
 
 - (void)setDelegate:(id<UICollectionViewDelegate>)delegate {
@@ -82,19 +81,19 @@
     self.target.dataSource = self;
 }
 
-- (void)setJun_itemSize:(CGFloat)jun_itemSize {
-    _jun_itemSize = jun_itemSize;
-    self.builder.itemSize = jun_itemSize;
+- (void)setJun_itemSize:(CGFloat)itemSize {
+    _jun_itemSize = itemSize;
+    self.builder.itemSize = itemSize;
 }
 
-- (void)setJun_minimumLineSpacing:(CGFloat)jun_minimumLineSpacing {
-    _jun_minimumLineSpacing = jun_minimumLineSpacing;
-    self.builder.minimumLineSpacing = jun_minimumLineSpacing;
+- (void)setJun_minimumLineSpacing:(CGFloat)minimumLineSpacing {
+    _jun_minimumLineSpacing = minimumLineSpacing;
+    self.builder.minimumLineSpacing = minimumLineSpacing;
 }
 
-- (void)setJun_minimumInteritemSpacing:(CGFloat)jun_minimumInteritemSpacing {
-    _jun_minimumInteritemSpacing = jun_minimumInteritemSpacing;
-    self.builder.minimumInteritemSpacing = jun_minimumInteritemSpacing;
+- (void)setJun_minimumInteritemSpacing:(CGFloat)minimumInteritemSpacing {
+    _jun_minimumInteritemSpacing = minimumInteritemSpacing;
+    self.builder.minimumInteritemSpacing = minimumInteritemSpacing;
 }
 
 - (void)setJun_inset:(UIEdgeInsets)jun_inset {
@@ -185,9 +184,9 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return [self.builder collectionView:collectionView layout:collectionViewLayout insetForSectionAtIndex:section];
 }
-//
+
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
-//
+
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section;
 
 @end
