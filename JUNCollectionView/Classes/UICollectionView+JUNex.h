@@ -25,7 +25,7 @@ typedef NSUInteger (^JUNCollectionViewCountBuilder)(void);
 // The following attribute assignments are only valid for CollectionViews created with the jun prefix methods above.
 @property(nonatomic, assign) CGFloat jun_minimumLineSpacing;
 @property(nonatomic, assign) CGFloat jun_minimumInteritemSpacing;
-@property(nonatomic, assign) CGFloat jun_itemSize;
+@property(nonatomic, assign) CGSize jun_itemSize;
 @property(nonatomic, assign) UIEdgeInsets jun_inset;
 
 @end

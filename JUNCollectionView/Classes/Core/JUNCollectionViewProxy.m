@@ -20,7 +20,7 @@
 
 @property(nonatomic, assign) CGFloat jun_minimumLineSpacing;
 @property(nonatomic, assign) CGFloat jun_minimumInteritemSpacing;
-@property(nonatomic, assign) CGFloat jun_itemSize;
+@property(nonatomic, assign) CGSize jun_itemSize;
 @property(nonatomic, assign) UIEdgeInsets jun_inset;
 
 @end
@@ -81,7 +81,7 @@
     self.target.dataSource = self;
 }
 
-- (void)setJun_itemSize:(CGFloat)itemSize {
+- (void)setJun_itemSize:(CGSize)itemSize {
     _jun_itemSize = itemSize;
     self.builder.itemSize = itemSize;
 }

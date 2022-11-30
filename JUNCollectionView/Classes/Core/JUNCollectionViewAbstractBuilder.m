@@ -73,10 +73,24 @@ NSString *JUNCollectionViewCellReuseId = @"cell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     UIView *item = [self _getItemForIndexPath:indexPath];
+    [self _validateItemFrame:item];
     CGSize size = item.frame.size;
     if (size.width > 0.0f && size.height > 0.0f) return size;
-    [item sizeToFit];
-    return item.frame.size;
+    return self.itemSize;
+}
+
+- (void)_validateItemFrame:(UIView *)item {
+    CGRect frame = item.frame;
+    CGFloat w = frame.size.width;
+    CGFloat h = frame.size.height;
+    if (!w || !h) {
+        [item sizeToFit];
+        w = w ? w : item.frame.size.width;
+        h = h ? h : item.frame.size.height;
+        frame.size.width = w;
+        frame.size.height = h;
+        item.frame = frame;
+    }
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
