@@ -79,6 +79,7 @@ NSString *JUNCollectionViewCellReuseId = @"cell";
     return self.itemSize;
 }
 
+// TODO: this method will be integrated to JUNFlex uiview's extension later
 - (void)_validateItemFrame:(UIView *)item {
     CGRect frame = item.frame;
     CGFloat w = frame.size.width;
@@ -95,26 +96,16 @@ NSString *JUNCollectionViewCellReuseId = @"cell";
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     NSParameterAssert([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]);
-    return [self _getMinimumLineSpacingWithLayout:(UICollectionViewFlowLayout *)collectionViewLayout];
+    return self.minimumLineSpacing;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     NSParameterAssert([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]);
-    return [self _getMinimumInteritemSpacingWithLayout:(UICollectionViewFlowLayout *)collectionViewLayout];
+    return self.minimumInteritemSpacing;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return self.inset;
-}
-
-#pragma mark - private
-
-- (CGFloat)_getMinimumLineSpacingWithLayout:(UICollectionViewFlowLayout *)layout {
-    return layout.scrollDirection == UICollectionViewScrollDirectionVertical ? self.minimumLineSpacing : self.minimumInteritemSpacing;
-}
-
-- (CGFloat)_getMinimumInteritemSpacingWithLayout:(UICollectionViewFlowLayout *)layout {
-    return layout.scrollDirection == UICollectionViewScrollDirectionVertical ? self.minimumInteritemSpacing : self.minimumLineSpacing;
 }
 
 @end
