@@ -84,7 +84,7 @@ NSString *JUNCollectionViewCellReuseId = @"cell";
     CGRect frame = item.frame;
     CGFloat w = frame.size.width;
     CGFloat h = frame.size.height;
-    if (!w || !h) {
+    if (!w || w == CGFLOAT_MIN || !h || h ==CGFLOAT_MIN) {
         [item sizeToFit];
         w = w ? w : item.frame.size.width;
         h = h ? h : item.frame.size.height;
